@@ -3,8 +3,31 @@ body {
       text-align: center;
       padding: 20px;
     }
-    #pokemon-image {
-      width: 300px;
-      height: 300px;
-      margin-bottom: 20px;
+    img {
+      margin: 20px 0;
+      border: 2px solid #333;
+      border-radius: 8px;
+    }
+    input {
+      padding: 8px;
+      font-size: 16px;
+      width: 200px;
+    }
+    button {
+      padding: 8px 16px;
+      font-size: 16px;
+      margin: 5px;
+      cursor: pointer;
+      border-radius: 5px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #resultText {
+      font-size: 18px;
+      margin: 15px 0;
+      min-height: 24px;
     }
