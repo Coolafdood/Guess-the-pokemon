@@ -50,3 +50,5 @@ function nextPokemon() {
   guessInput.value = "";
   resultText.textContent = "➡️ Next Pokémon! Enter your guess.";
 }
+window.addEventListener('load', runGame);
+
