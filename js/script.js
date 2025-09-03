@@ -18,3 +18,9 @@ const pokemonList = [
   { name: "bulbasaur", img: "assets/images/bulbasaur.png" },
   { name: "squirtle", img: "assets/images/squirtle.png" }
 ];
+function runGame() {
+  // Show the first Pokémon
+  pokemonImage.src = pokemonList[currentPokemonId].img;
+  resultText.textContent = "➡️ Enter your guess!";
+  guessInput.value = "";
+}
