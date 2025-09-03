@@ -1,7 +1,7 @@
-<div>
-  <img id="pokemonImage" src="assets/images/pikachu.png" alt="Guess the Pokémon" width="300" />
-  <p id="resultText"></p>
-  <input type="text" id="guessInput" placeholder="Enter your guess" />
-  <button id="checkGuessButton">Submit</button>
-  <button id="nextPokemonButton">Next</button>
-</div>
+let currentPokemonId = 0; // tracks which Pokémon is showing
+// HTML element references
+const pokemonImage = document.getElementById('pokemonImage');
+const resultText = document.getElementById('resultText');
+const guessInput = document.getElementById('guessInput');
+const checkGuessButton = document.getElementById('checkGuessButton');
+const nextPokemonButton = document.getElementById('nextPokemonButton');
