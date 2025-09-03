@@ -4,23 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Guess the Image Game</title>
-  
 </head>
 <body>
 
   <h1>Guess the Image</h1>
 
   <!-- Image container -->
-  <div>
-    <img id="game-image" src="assets/images/pikachu.png" alt="Guess this image">
+  <div id="imageContainer">
+    <img id="pokemonImage" src="assets/images/pikachu.png" alt="Guess the Pokémon" width="300"> 
   </div>
 
-  <div id="result-message"></div>
-    <input type="text" id="guessInput" placeholder="Enter your guess">
-  <button onclick="checkGuess()">Submit</button>
-
   <p id="result"></p>
-  
-    <script src="js/script.js"></script>
+
+  <input type="text" id="guessInput" placeholder="Enter your guess">
+  <button onclick="checkGuess()">Submit</button>
+  <button onclick="nextPokemon()">Next</button>
+
+  <script src="js/script.js"></script>
 </body>
-    </html>
+</html>
