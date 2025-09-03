@@ -36,3 +36,17 @@ function checkAnswer() {
 
   guessInput.value = "";
 }
+function nextPokemon() {
+  currentPokemonId++;
+
+  if (currentPokemonId >= pokemonList.length) {
+    resultText.textContent = "🏆 You've guessed all the Pokémon!";
+    guessInput.disabled = true;
+    pokemonImage.style.display = 'none';
+    return;
+  }
+
+  pokemonImage.src = pokemonList[currentPokemonId].img;
+  guessInput.value = "";
+  resultText.textContent = "➡️ Next Pokémon! Enter your guess.";
+}
