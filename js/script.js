@@ -1,10 +1,7 @@
-let currentPokemonId = 0; // tracks which Pokémon is showing
-// HTML element references
-const pokemonImage = document.getElementById('pokemonImage');
-const resultText = document.getElementById('resultText');
-const guessInput = document.getElementById('guessInput');
-const checkGuessButton = document.getElementById('checkGuessButton');
-const nextPokemonButton = document.getElementById('nextPokemonButton');
+const checkGuess = () => {
+  const userGuess = document.getElementById('guessInput').value.toLowerCase();
+};
+let currentPokemonId = 0;
 
 const pokemonList = [
   { name: "pikachu", img: "assets/images/pikachu.png" },
@@ -12,3 +9,5 @@ const pokemonList = [
   { name: "bulbasaur", img: "assets/images/bulbasaur.png" },
   { name: "squirtle", img: "assets/images/squirtle.png" }
 ];
+
+const resultText = document.getElementById('resultText');
