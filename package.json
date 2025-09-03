@@ -1,0 +1,19 @@
+{
+  "name": "guess-the-pokemon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Coolafdood/Guess-the-pokemon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Coolafdood/Guess-the-pokemon/issues"
+  },
+  "homepage": "https://github.com/Coolafdood/Guess-the-pokemon#readme"
+}
