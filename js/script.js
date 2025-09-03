@@ -7,11 +7,27 @@ let nextPokemonButton = document.getElementById('nextPokemonButton');
 let currentPokemonId = 0;
 
 const pokemonList = [
-	{ name: "pikachu", img: "assets/images/pikachu.png" },
-	{ name: "charmander", img: "assets/images/charmander.png" },
-	{ name: "bulbasaur", img: "assets/images/bulbasaur.png" },
-	{ name: "squirtle", img: "assets/images/squirtle.png" }
+  { name: "pikachu", img: "assets/images/pikachu.png" },
+  { name: "charmander", img: "assets/images/charmander.png" },
+  { name: "bulbasaur", img: "assets/images/bulbasaur.png" },
+  { name: "squirtle", img: "assets/images/squirtle.png" },
+  { name: "jigglypuff", img: "assets/images/jigglypuff.png" },
+  { name: "meowth", img: "assets/images/meowth.png" },
+  { name: "psyduck", img: "assets/images/psyduck.png" },
+  { name: "snorlax", img: "assets/images/snorlax.png" },
+  { name: "eevee", img: "assets/images/eevee.png" },
+  { name: "vulpix", img: "assets/images/vulpix.png" },
+  { name: "growlithe", img: "assets/images/growlithe.png" },
+  { name: "machop", img: "assets/images/machop.png" },
+  { name: "geodude", img: "assets/images/geodude.png" },
+  { name: "onix", img: "assets/images/onix.png" },
+  { name: "magnemite", img: "assets/images/magnemite.png" },
+  { name: "gastly", img: "assets/images/gastly.png" },
+  { name: "haunter", img: "assets/images/haunter.png" },
+  { name: "alakazam", img: "assets/images/alakazam.png" },
+  { name: "magikarp", img: "assets/images/magikarp.png" }
 ];
+
 
 function runGame() {
 	// Show the first Pokémon
