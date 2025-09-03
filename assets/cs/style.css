@@ -1,0 +1,10 @@
+body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    #pokemon-image {
+      width: 300px;
+      height: 300px;
+      margin-bottom: 20px;
+    }
