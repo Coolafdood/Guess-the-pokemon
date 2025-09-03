@@ -24,3 +24,15 @@ function runGame() {
   resultText.textContent = "➡️ Enter your guess!";
   guessInput.value = "";
 }
+function checkAnswer() {
+  let userGuess = guessInput.value.toLowerCase();
+  let secretName = pokemonList[currentPokemonId].name;
+
+  if (userGuess === secretName) {
+    resultText.textContent = "🎉 Correct! It's " + secretName + "!";
+  } else {
+    resultText.textContent = "❌ Oops! That's not the correct Pokémon. Try again!";
+  }
+
+  guessInput.value = "";
+}
