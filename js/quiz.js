@@ -68,8 +68,44 @@ function showQuestion(question) {
   question.answers.forEach((answer, index) => {
     const inputGroup = document.createElement("div");
     inputGroup.classList.add("input-group");
-    // You may want to add more code here to create answer buttons and append them to the DOM
-    // For now, this closes the forEach and function properly
+
+    const radio = document.createElement("input");
+    radio.type = "radio";
+    radio.id = "answer" + index;
+    radio.name = "answer";
+    radio.value = index;
+
+    const label = document.createElement("label");
+    label.htmlFor = "answer" + index;
+    label.innerText = answer.text;
+
+    inputGroup.appendChild(radio);
+    inputGroup.appendChild(label);
+    answerButtons.appendChild(inputGroup);
   });
 }
-     
+
+function resetState() {
+  while (answerButtons.firstChild) {
+    answerButtons.removeChild(answerButtons.firstChild);
+  }
+}
+
+nextButton.addEventListener("click", () => {
+  const answerIndex = Array.from(
+    answerButtons.querySelectorAll("input")
+  ).findIndex((radio) => radio.checked);
+  if (answerIndex !== -1) {
+    if (shuffledQuestions[currentQuestionIndex].answers[answerIndex].correct) {
+      score++;
+    }
+    currentQuestionIndex++;
+    if (shuffledQuestions.length > currentQuestionIndex) {
+      setNextQuestion();
+    } else {
+      endQuiz();
+    }
+  } else {
+    alert("Please select an answer.");
+  }
+});
