@@ -7,7 +7,7 @@ const checkGuessButton = document.getElementById("checkGuessButton");
 const nextPokemonButton = document.getElementById("nextPokemonButton");
 
 let currentPokemonId = 0;
-
+let score = 0;
 
 const pokemonList = [
     {img: "assets/images/pikachu.png", name: "pikachu"},
@@ -33,50 +33,60 @@ const pokemonList = [
 ];
 
 function runGame() {
-    // Show the first Pokémon
+    // Show the current Pokémon
     pokemonImage.src = pokemonList[currentPokemonId].img;
     resultText.textContent = "➡️ Enter your guess!";
     guessInput.value = "";
     guessInput.disabled = false;
-    pokemonImage.style.display = "";
 }
 
+// Check the user's guess
 function checkAnswer() {
     const userGuess = guessInput.value.toLowerCase();
     const secretName = pokemonList[currentPokemonId].name;
 
     if (userGuess === secretName) {
         resultText.textContent = "🎉 Correct! It's " + secretName + "!";
+        score++;
     } else {
         resultText.textContent =
-        "❌ Oops! That's not the correct Pokémon. " +
-        "Try again!";
+            "❌ Oops! That's not the correct Pokémon. Try again!";
     }
     guessInput.value = "";
 }
 
-
-
+// Move to the next Pokémon or restart
 function nextPokemon() {
     currentPokemonId += 1;
 
     if (currentPokemonId >= pokemonList.length) {
-        resultText.textContent = "🏆 You've guessed all the Pokémon!";
+        resultText.textContent = `🏆 You've guessed all Pokémon! Final score: ${score} / ${pokemonList.length}. Restarting...`;
         guessInput.disabled = true;
         pokemonImage.style.display = "none";
+
+        // Restart after 3 seconds
+        setTimeout(restartGame, 3000);
         return;
     }
 
-    pokemonImage.src = pokemonList[currentPokemonId].img;
-    guessInput.value = "";
-    resultText.textContent = "➡️ Next Pokémon! Enter your guess.";
-    guessInput.disabled = false;
-    pokemonImage.style.display = "";
+    runGame();
 }
 
+// Restart the game
+function restartGame() {
+    currentPokemonId = 0;
+    score = 0;
+    pokemonImage.style.display = "";
+    guessInput.disabled = false;
+    runGame();
+}
+
+// Event listeners
 window.addEventListener("load", runGame);
-nextPokemonButton.addEventListener("click", nextPokemon);
 checkGuessButton.addEventListener("click", checkAnswer);
+nextPokemonButton.addEventListener("click", nextPokemon);
+
+// Optional: log Pokémon names to console for testing
 for (let i = 0; i < pokemonList.length; i++) {
     console.log(`Pokémon #${i + 1}: ${pokemonList[i].name}`);
 }
