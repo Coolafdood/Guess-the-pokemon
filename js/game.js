@@ -77,3 +77,6 @@ function nextPokemon() {
 window.addEventListener("load", runGame);
 nextPokemonButton.addEventListener("click", nextPokemon);
 checkGuessButton.addEventListener("click", checkAnswer);
+for (let i = 0; i < pokemonList.length; i++) {
+    console.log(`Pokémon #${i + 1}: ${pokemonList[i].name}`);
+}
