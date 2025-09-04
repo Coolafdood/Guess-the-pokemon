@@ -3,28 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guess the Pokémon Game</title>
-  <link rel="stylesheet" href="assets/cs/style.css">
+  <title>Pokémon Quiz | Home</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body>
-  <h1>Guess the Pokémon!</h1>
+<body class="d-flex flex-column min-vh-100">
 
-  <!-- Pokémon image -->
-  <div>
-    <img id="pokemonImage" src="assets/images/pikachu.png" alt="Guess the Pokémon" width="300">
-  </div>
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <i class="fa-solid fa-dragon"></i> Pokémon Quiz
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="game.html">Play Game</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-  <!-- Result message -->
-  <p id="resultText">➡️ Enter your guess!</p>
-
-  <!-- Input & Buttons -->
-  <input type="text" id="guessInput" placeholder="Enter your guess">
-  <div>
-    <button id="checkGuessButton">Submit</button>
-    <button id="nextPokemonButton">Next</button>
-  </div>
-
-  <!-- JavaScript -->
-  <script src="js/game.js"></script>
-</body>
-</html>
+  

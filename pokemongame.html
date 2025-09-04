@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess the Pokémon Game</title>
+  <link rel="stylesheet" href="assets/cs/style.css">
+</head>
+<body>
+  <h1>Guess the Pokémon!</h1>
+
+  <!-- Pokémon image -->
+  <div>
+    <img id="pokemonImage" src="assets/images/pikachu.png" alt="Guess the Pokémon" width="300">
+  </div>
+
+  <!-- Result message -->
+  <p id="resultText">➡️ Enter your guess!</p>
+
+  <!-- Input & Buttons -->
+  <input type="text" id="guessInput" placeholder="Enter your guess">
+  <div>
+    <button id="checkGuessButton">Submit</button>
+    <button id="nextPokemonButton">Next</button>
+  </div>
+<div class="quiz-container">
+      <div id="question-container">
+        <h3 id="question">Question</h3>
+        <div id="answer-buttons"></div>
+      </div>
+      <button id="next-btn" class="btn hide">Next</button>
+      <div id="result" class="hide"></div>
+      <button id="restart-btn" class="btn hide">Restart</button>
+    </div>
+  <!-- Game JavaScript -->
+  <script src="js/game.js"></script>
+   
+</body>
+</html>
