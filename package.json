@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Coolafdood/Guess-the-pokemon/issues"
   },
-  "homepage": "https://github.com/Coolafdood/Guess-the-pokemon#readme"
+  "homepage": "https://github.com/Coolafdood/Guess-the-pokemon#readme",
+  "devDependencies": {
+    "jest": "^30.1.3"
+  }
 }
