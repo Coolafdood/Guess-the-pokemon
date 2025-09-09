@@ -10,26 +10,26 @@ let currentPokemonId = 0;
 let score = 0;
 
 const pokemonList = [
-    {img: "assets/images/pikachu.png", name: "pikachu"},
-    {img: "assets/images/charmander.png", name: "charmander"},
-    {img: "assets/images/bulbasaur.png", name: "bulbasaur"},
-    {img: "assets/images/squirtle.png", name: "squirtle"},
-    {img: "assets/images/jigglypuff.png", name: "jigglypuff"},
-    {img: "assets/images/meowth.png", name: "meowth"},
-    {img: "assets/images/psyduck.png", name: "psyduck"},
-    {img: "assets/images/snorlax.png", name: "snorlax"},
-    {img: "assets/images/eevee.png", name: "eevee"},
-    {img: "assets/images/vulpix.png", name: "vulpix"},
-    {img: "assets/images/growlithe.png", name: "growlithe"},
-    {img: "assets/images/machop.png", name: "machop"},
-    {img: "assets/images/geodude.png", name: "geodude"},
-    {img: "assets/images/onix.png", name: "onix"},
-    {img: "assets/images/magnemite.png", name: "magnemite"},
-    {img: "assets/images/gastly.png", name: "gastly"},
-    {img: "assets/images/haunter.png", name: "haunter"},
-    {img: "assets/images/alakazam.png", name: "alakazam"},
-    {img: "assets/images/magikarp.png", name: "magikarp"},
-    {img: "assets/images/gengar.png", name: "gengar"}
+    {img: "assets/images/pikachu01.png", name: "pikachu"},
+    {img: "assets/images/charmander02.png", name: "charmander"},
+    {img: "assets/images/bulbasaur03.png", name: "bulbasaur"},
+    {img: "assets/images/squirtle04.png", name: "squirtle"},
+    {img: "assets/images/jigglypuff05.png", name: "jigglypuff"},
+    {img: "assets/images/meowth06.png", name: "meowth"},
+    {img: "assets/images/psyduck07.png", name: "psyduck"},
+    {img: "assets/images/snorlax08.png", name: "snorlax"},
+    {img: "assets/images/eevee09.png", name: "eevee"},
+    {img: "assets/images/vulpix10.png", name: "vulpix"},
+    {img: "assets/images/growlithe11.png", name: "growlithe"},
+    {img: "assets/images/machop12.png", name: "machop"},
+    {img: "assets/images/geodude13.png", name: "geodude"},
+    {img: "assets/images/onix14.png", name: "onix"},
+    {img: "assets/images/magnemite15.png", name: "magnemite"},
+    {img: "assets/images/gastly16.png", name: "gastly"},
+    {img: "assets/images/haunter17.png", name: "haunter"},
+    {img: "assets/images/alakazam18.png", name: "alakazam"},
+    {img: "assets/images/magikarp19.png", name: "magikarp"},
+    {img: "assets/images/gengar20.png", name: "gengar"}
 ];
 
 function runGame() {
