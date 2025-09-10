@@ -39,9 +39,16 @@ This web application is a **Pokémon guessing game**.
 
 ## Wireframe
 Index desktop:
+1366px to 1920px
 <img width="890" height="420" alt="image" src="https://github.com/user-attachments/assets/c1a27beb-bd7c-4a85-8e93-fb8315fd61b9" />
 
+
+
 index tablet
+768px to 1280px
+<img width="550" height="492" alt="image" src="https://github.com/user-attachments/assets/6bb07403-a8e4-401d-b9d8-081137caecfd" />
+
+
 
 index phone:
 
