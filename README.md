@@ -73,7 +73,15 @@ pokemongame phone
 *To be added: list the features of your game (e.g., random Pokémon selection, score tracking, responsive design).*  
 
 ## Used Tools
-*To be added: e.g., HTML, CSS, JavaScript, GitHub Pages.*  
+HTML5 — page structure.
+
+CSS3 / Bootstrap 5 — responsive design and layout.
+
+JavaScript (Vanilla) — game logic and interactivity.
+
+Font Awesome — icons (dragon, trophy, etc.).
+
+Git & GitHub — version control and hosting.  
 
 ## Getting Started
 *To be added: instructions on how to clone the repo and run it locally.*  
