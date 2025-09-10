@@ -10,7 +10,7 @@
 9. [Contact](#contact)  
 10. [License](#license)  
 11. [Bugs Fixed](#bugs-fixed)  
-12. [User Cases](#user-cases)  
+12. [Testing](#testing)  
 
 ---
 
@@ -83,17 +83,21 @@ Font Awesome — icons (dragon, trophy, etc.).
 
 Git & GitHub — version control and hosting.  
 
-## Getting Started
-*To be added: instructions on how to clone the repo and run it locally.*  
+## Testing
+| Feature              | Action                                 | Expected Result                                     | Actual Result     | Pass/Fail |
+| -------------------- | -------------------------------------- | --------------------------------------------------- | ----------------- | --------- |
+| **Navbar – Desktop** | Open on desktop (≥1366px)              | Navbar visible with links aligned right             | Works as expected | ✅ Pass    |
+| **Navbar – Mobile**  | Open on phone (≤414px)                 | Navbar collapses into burger menu, expands on click | Works as expected | ✅ Pass    |
+| **Footer**           | Scroll page / resize window            | Footer sticks to bottom of viewport                 | Works as expected | ✅ Pass    |
+| **Pokémon Image**    | Start game                             | First Pokémon image loads correctly                 | Works as expected | ✅ Pass    |
+| **Submit Guess**     | Enter correct Pokémon name             | Displays green "Correct!" message                   | Works as expected | ✅ Pass    |
+| **Submit Guess**     | Enter incorrect Pokémon name           | Displays red "Incorrect!" message                   | Works as expected | ✅ Pass    |
+| **Next Pokémon**     | Click "Next Pokémon" button            | Loads new Pokémon image                             | Works as expected | ✅ Pass    |
+| **Game Completion**  | Play through all 20 Pokémon            | Displays final score and restarts automatically     | Works as expected | ✅ Pass    |
+| **Reset Function**   | After 20 rounds                        | Game resets to round 1, score cleared               | Works as expected | ✅ Pass    |
+| **Responsiveness**   | Resize to desktop, tablet, phone sizes | Layout adapts, images/buttons scale properly        | Works as expected | ✅ Pass    |
+| **Cross-browser**    | Test in Chrome, Firefox, Edge          | Game runs without layout or script issues           | Works as expected | ✅ Pass    |
 
-## How to Contribute
-*To be added: contribution guidelines.*  
-
-## Contact
-*To be added: your email or GitHub profile link.*  
-
-## License
-*To be added: license type (e.g., MIT).*  
 
 ## Bugs Fixed
 *To be added: description of bugs fixed so far.*  
