@@ -1,16 +1,9 @@
 # Table of Contents
-1. [Introduction](#introduction)  
-2. [End User Requirements](#end-user-requirements)  
-3. [Website Owner Requirements](#website-owner-requirements)  
-4. [Wireframe](#wireframe)  
-5. [Features](#features)  
-6. [Used Tools](#used-tools)  
-7. [Getting Started](#getting-started)  
-8. [How to Contribute](#how-to-contribute)  
-9. [Contact](#contact)  
-10. [License](#license)  
-11. [Bugs Fixed](#bugs-fixed)  
-12. [Testing](#testing)  
+1. [Introduction](#introduction)   
+2. [Wireframe](#wireframe)  
+3. [Features](#features)  
+4. [Used Tools](#used-tools)  
+5 [Testing](#testing)  
 
 ---
 
@@ -29,13 +22,7 @@ This web application is a **Pokémon guessing game**.
 - At the end of 20 rounds, the user is given a final score (e.g., `18/20`).  
 - After the results, the game resets so the user can play again.
 
----
-
-## End User Requirements
-*To be written: e.g., Users should be able to play without logging in, submit answers, view results, etc.*  
-
-## Website Owner Requirements
-*To be written: e.g., Easy to maintain, scalable, engaging for users, etc.*  
+---*  
 
 ## Wireframe
 Index.html
@@ -97,10 +84,6 @@ Git & GitHub — version control and hosting.
 | **Reset Function**   | After 20 rounds                        | Game resets to round 1, score cleared               | Works as expected | ✅ Pass    |
 | **Responsiveness**   | Resize to desktop, tablet, phone sizes | Layout adapts, images/buttons scale properly        | Works as expected | ✅ Pass    |
 | **Cross-browser**    | Test in Chrome, Firefox, Edge          | Game runs without layout or script issues           | Works as expected | ✅ Pass    |
-
-
-## Bugs Fixed
-*To be added: description of bugs fixed so far.*  
 
 ## User Cases
 *To be added: scenarios of how different users interact with the game.*  
