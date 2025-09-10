@@ -3,53 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guess the Pokémon Game</title>
+  <title>Pokémon Quiz | Game</title>
 
-  <!-- Bootstrap -->
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
 
+  <style>
+    body {
+      padding-top: 70px; /* Push content below fixed navbar */
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: #f9f9f9;
+    }
+    main {
+      flex: 1;
+    }
+  </style>
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body>
 
-  <!-- Navigation -->
-  <header>
-    <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
-      <div class="container">
-        <a class="navbar-brand" href="index.html">
-          <i class="fa-solid fa-dragon"></i> Pokémon Quiz
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link active" href="pokemongame.html">Play Game</a></li>
-          </ul>
-        </div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fa-solid fa-dragon"></i> Pokémon Quiz
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="pokemongame.html">Play Game</a></li>
+        </ul>
       </div>
-    </nav>
-  </header>
+    </div>
+  </nav>
 
   <!-- Main Game Area -->
   <main class="flex-grow-1 py-5">
     <div class="container text-center">
       <h1 class="mb-4">Guess the Pokémon!</h1>
 
-      <!-- Pokémon image -->
       <div class="mb-4">
         <img id="pokemonImage" src="assets/images/pikachu01.png" alt="Guess the Pokémon" class="img-fluid" style="max-width: 300px;">
       </div>
 
-      <!-- Result message -->
       <p id="resultText" class="lead fw-bold">➡️ Enter your guess!</p>
 
-      <!-- Input & Buttons -->
       <div class="mb-3">
         <input type="text" id="guessInput" class="form-control text-center mb-2" placeholder="Enter your guess">
         <div>
@@ -61,16 +70,14 @@
   </main>
 
   <!-- Footer -->
-  <footer class="mt-auto bg-light py-3">
-    <div class="container text-center small text-muted">
-      &copy; 2025 Pokémon Quiz Game. All rights reserved.
-    </div>
+  <footer class="bg-light py-3 text-center small text-muted mt-auto">
+    &copy; 2025 Pokémon Quiz Game. All rights reserved.
   </footer>
 
-  <!-- Bootstrap JS -->
+  <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Game JavaScript -->
+  <!-- External Game JS -->
   <script src="js/game.js"></script>
 </body>
 </html>
