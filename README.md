@@ -38,7 +38,8 @@ This web application is a **Pokémon guessing game**.
 *To be written: e.g., Easy to maintain, scalable, engaging for users, etc.*  
 
 ## Wireframe
-Index desktop:
+Index.html
+desktop:
 1366px to 1920px
 <img width="890" height="420" alt="image" src="https://github.com/user-attachments/assets/c1a27beb-bd7c-4a85-8e93-fb8315fd61b9" />
 
@@ -50,13 +51,24 @@ index tablet
 
 
 
-index phone:
+index phone
+360px to 414px wide:
+<img width="252" height="532" alt="image" src="https://github.com/user-attachments/assets/76593d18-25ed-4038-91b3-9e8a0f70773e" />
 
-pokemongame desktop
+
+pokemongame.html
+desktop
+1366px to 1920px
+<img width="831" height="452" alt="image" src="https://github.com/user-attachments/assets/7a0c0a48-2401-49d3-8cde-5a975f62e32b" />
 
 pokemongame tablet
+768px to 1280px
+<img width="550" height="492" alt="image" src="https://github.com/user-attachments/assets/30449846-889a-4d69-bfcf-d396a5b2de88" />
 
 pokemongame phone
+360px to 414px wide:
+<img width="218" height="482" alt="image" src="https://github.com/user-attachments/assets/b6abdef7-c0ad-41ad-9750-fcc129fcf4fb" />
+
 ## Features
 *To be added: list the features of your game (e.g., random Pokémon selection, score tracking, responsive design).*  
 
