@@ -1,87 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pokémon Quiz | Home</title>
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="assets/css/style.css">
-
-  <style>
-    body {
-      padding-top: 70px; /* Push content below fixed navbar */
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      background-color: #f9f9f9;
-    }
-    main {
-      flex: 1;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Guess the Pokémon</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <i class="fa-solid fa-dragon"></i> Pokémon Quiz
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="pokemongame.html">Play Game</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <i class="fas fa-paw" aria-hidden="true"></i> Pokémon Game
+        </div>
+    </nav>
 
-  <!-- Main Content -->
-  <main class="container text-center py-5">
-    <section class="mb-5">
-      <h1 class="display-4 mb-3">Who's That Pokémon?</h1>
-      <p class="lead mb-4">
-        Test your knowledge of classic Pokémon! Guess their names from pictures and see how many you can get right.
-      </p>
-    </section>
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero text-center">
+            <h1 class="display-4">Guess the Pokémon!</h1>
+            <p class="lead">Test your Pokémon knowledge and have fun!</p>
+        </section>
 
-    <section class="row text-center py-5">
-      <div class="col-md-4 mb-4">
-        <i class="fa-solid fa-bolt fa-2x mb-2 text-warning"></i>
-        <h5>Fast Gameplay</h5>
-        <p>Quick rounds keep you on your toes. Can you name all 20 Pokémon?</p>
-      </div>
-      <div class="col-md-4 mb-4">
-        <i class="fa-solid fa-brain fa-2x mb-2 text-info"></i>
-        <h5>Challenge Yourself</h5>
-        <p>Improve your memory and Pokémon knowledge with each attempt.</p>
-      </div>
-      <div class="col-md-4 mb-4">
-        <i class="fa-solid fa-trophy fa-2x mb-2 text-success"></i>
-        <h5>Earn Bragging Rights</h5>
-        <p>Finish the quiz and prove you’re the ultimate Pokémon trainer!</p>
-      </div>
-    </section>
-  </main>
+        <!-- Feature Cards Section -->
+        <section class="features">
+            <h2 class="section-title">Game Features</h2>
+            <div class="row">
+                <div class="text-center col">
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <p>Feature 1</p>
+                </div>
+                <div class="text-center col">
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <p>Feature 2</p>
+                </div>
+                <div class="text-center col">
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <p>Feature 3</p>
+                </div>
+            </div>
+        </section>
 
-  <!-- Footer -->
-  <footer class="bg-light py-3 text-center small text-muted mt-auto">
-    &copy; 2025 Pokémon Quiz Game. All rights reserved.
-  </footer>
+        <!-- Pokémon Game Section -->
+        <section id="pokemonGameContainer" class="text-center">
+            <h2 class="game-title">Who's that Pokémon?</h2>
 
-  <!-- Bootstrap JS Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+            <img id="pokemonImage" src="assets/images/pikachu01.png" alt="Pokémon">
+            <br>
+            <input type="text" id="guessInput" placeholder="Enter Pokémon name">
+            <br>
+            <button id="checkGuessButton" aria-label="Check your guess">Check Guess</button>
+            <button id="nextPokemonButton" aria-label="Show the next Pokémon">Next Pokémon</button>
+            <p id="resultText">➡️ Enter your guess!</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <p>© 2025 Pokémon Game</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
