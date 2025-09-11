@@ -85,5 +85,8 @@ Git & GitHub — version control and hosting.
 | **Responsiveness**   | Resize to desktop, tablet, phone sizes | Layout adapts, images/buttons scale properly        | Works as expected | ✅ Pass    |
 | **Cross-browser**    | Test in Chrome, Firefox, Edge          | Game runs without layout or script issues           | Works as expected | ✅ Pass    |
 
+ **Navbar – Desktop**
+ <img width="1892" height="857" alt="image" src="https://github.com/user-attachments/assets/454cfe81-a34f-4056-80aa-5626385c1c15" />
+
 ## User Cases
 *To be added: scenarios of how different users interact with the game.*  
