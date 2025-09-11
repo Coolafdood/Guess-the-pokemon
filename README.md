@@ -3,8 +3,9 @@
 2. [Wireframe](#wireframe)  
 3. [Features](#features)  
 4. [Used Tools](#used-tools)  
-5 [Testing](#testing)  
-
+5. [Manual_Testing](#manual-testing)
+6. [Automatic_Testing](#automatic-testing)
+7. [Principles_Testing](#principles-testing)
 ---
 
 ## Introduction
@@ -68,9 +69,13 @@ JavaScript (Vanilla) — game logic and interactivity.
 
 Font Awesome — icons (dragon, trophy, etc.).
 
-Git & GitHub — version control and hosting.  
+Git & GitHub — version control and hosting. 
 
-## Testing
+Chat GPT v 5.0
+
+Jest 
+
+## Manual Testing
 | Feature              | Action                                 | Expected Result                                     | Actual Result     | Pass/Fail |
 | -------------------- | -------------------------------------- | --------------------------------------------------- | ----------------- | --------- |
 | **Navbar – Desktop** | Open on desktop (≥1366px)              | Navbar visible with links aligned right             | Works as expected | ✅ Pass    |
@@ -135,6 +140,21 @@ tablet pokemon game
 phone pokemon game
 <img width="242" height="756" alt="image" src="https://github.com/user-attachments/assets/89297517-e512-4e26-a7cc-2841b6ee20b8" />
 
+## Automatic Testing
+Jest
+<img width="790" height="307" alt="image" src="https://github.com/user-attachments/assets/9642204f-2bad-44fc-b5a9-789a2c0d5d6e" />
 
-## User Cases
-*To be added: scenarios of how different users interact with the game.*  
+
+## Principles Testing
+
+There are two types of testing, automatic and manual and should be done before and after any code has been modified or added.
+
+Manual: Using user test cases, you pose as a user (or admin or site owner), using the site. screenshotting upon each function that you are showing that works by clicking buttons and using features, therefore showing the ability. This will benefit the site as you can then get to the end goal for the user (purchasing from the site or adding to the basket). It can be more specific to the context of the users scenario, such as an action performed like logging out and then putting in the concequences of the action, in the case of logging out; it logs out. This can can now be observed and can be repeated. however it is much more time consuming, as it may take more than one person to do this type of testing; especially if it is a larger project as you have to test all the logic. This testing consumes more energy therefore, issues are much more than likely to be missed due to fatigue. it can be described as Behaviour Driven Development (BDD). 
+
+Automatic: Can be done much faster, with the code and mulitple can be run in a short time of space at the same time. As it uses less time and energy, it is much more efficent of its time when detecting errors much earlier. Unlike manual, it can pick up edge cases. We use TDD (Test Driven Development) which is know as Red-Green-Refactor testing, where you start writing with just enough tests to get it started, with one code at a time.  However, it is only as good as the prompts and questioned asked and give a false impression. 
+
+A good acronym RITE (Readable Isolated Thorough Explicit) To describe the behaviour behind how to test.
+Readable - meaning whenever you write the description of the failure or what you are testing for is coherent and easy to read.
+Isolated - should be atomic, individual. This prevents any mixup and confusion and should not have to pass one test to pass another.
+Thorough - to expect the unexpected, meaning sods law comes into play where something is bound to go wrong.
+Explicit - This means the test must be obvious to what it is testing in the test code and be able to repeat.
