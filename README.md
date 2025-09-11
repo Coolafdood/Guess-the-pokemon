@@ -83,10 +83,58 @@ Git & GitHub — version control and hosting.
 | **Game Completion**  | Play through all 20 Pokémon            | Displays final score and restarts automatically     | Works as expected | ✅ Pass    |
 | **Reset Function**   | After 20 rounds                        | Game resets to round 1, score cleared               | Works as expected | ✅ Pass    |
 | **Responsiveness**   | Resize to desktop, tablet, phone sizes | Layout adapts, images/buttons scale properly        | Works as expected | ✅ Pass    |
-| **Cross-browser**    | Test in Chrome, Firefox, Edge          | Game runs without layout or script issues           | Works as expected | ✅ Pass    |
 
  **Navbar – Desktop**
  <img width="1892" height="857" alt="image" src="https://github.com/user-attachments/assets/454cfe81-a34f-4056-80aa-5626385c1c15" />
+
+**Navbar – Mobile**
+ <img width="1080" height="2340" alt="image" src="https://github.com/user-attachments/assets/2e395d9c-d96b-41bd-901d-b5729072a8c1" />
+<img width="1080" height="2340" alt="image" src="https://github.com/user-attachments/assets/c3dd001a-f2eb-4bee-a4cf-8d99f222baef" />
+ **Footer** 
+ <img width="1036" height="695" alt="image" src="https://github.com/user-attachments/assets/3fb000ed-6c92-42d9-af2c-d452a5bce21c" />
+ **Pokémon Image**
+<img width="1028" height="676" alt="image" src="https://github.com/user-attachments/assets/a4426562-1835-492f-817b-5b3609b71c6e" />
+**Submit Guess** - Correct
+<img width="340" height="416" alt="image" src="https://github.com/user-attachments/assets/ae6f8e3b-d0bb-419a-922c-063e4b9673c8" />
+
+**Submit Guess**  Incorrect
+<img width="293" height="376" alt="image" src="https://github.com/user-attachments/assets/92e3cb9e-607b-4b0e-8a68-1d4fb1f484c8" />
+
+ **Next Pokémon** 
+ <img width="523" height="730" alt="image" src="https://github.com/user-attachments/assets/67f7ac96-3eda-4dff-b950-dcd58f1625f2" />
+
+ <img width="505" height="713" alt="image" src="https://github.com/user-attachments/assets/cf7af886-9f64-4712-803f-0e101fd7ab71" />
+
+ **Game Completion** 
+
+<img width="771" height="395" alt="image" src="https://github.com/user-attachments/assets/ce9bf065-d826-41bf-a7be-a0e7dcd0f4d5" />
+
+**Reset Function** 
+<img width="513" height="760" alt="image" src="https://github.com/user-attachments/assets/6daab79d-e1aa-485a-949e-24a59ca910e4" />
+
+**Responsiveness** 
+Laptop home index 1366px to 1920px
+<img width="1020" height="667" alt="image" src="https://github.com/user-attachments/assets/c8406dac-9490-44fd-b9cf-3b489ebb965c" />
+
+tablet home index 768px to 1280px
+<img width="846" height="757" alt="image" src="https://github.com/user-attachments/assets/4210bfa7-6773-4df4-b55c-fd4c1d2819be" />
+
+
+phone home index 360px to 414px wide:
+<img width="252" height="758" alt="image" src="https://github.com/user-attachments/assets/4057735e-1c71-42ee-ad70-19e11afa5135" />
+
+
+
+laptop pokemon game 
+<img width="960" height="757" alt="image" src="https://github.com/user-attachments/assets/2aabf41f-f1dc-406b-929d-a64b166ca0b7" />
+
+
+tablet pokemon game
+<img width="536" height="752" alt="image" src="https://github.com/user-attachments/assets/5a8c35b8-e025-4786-999b-3ad372a4fda7" />
+
+phone pokemon game
+<img width="242" height="756" alt="image" src="https://github.com/user-attachments/assets/89297517-e512-4e26-a7cc-2841b6ee20b8" />
+
 
 ## User Cases
 *To be added: scenarios of how different users interact with the game.*  
