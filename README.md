@@ -144,6 +144,7 @@ phone pokemon game
 Jest
 <img width="790" height="307" alt="image" src="https://github.com/user-attachments/assets/9642204f-2bad-44fc-b5a9-789a2c0d5d6e" />
 
+<img width="776" height="336" alt="image" src="https://github.com/user-attachments/assets/ae47979a-deb9-4f61-99ec-c414b87ef9ef" />
 
 ## Principles Testing
 
