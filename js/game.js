@@ -1,5 +1,3 @@
-/* jslint browser */
-
 // ---------- Pokémon Data ----------
 const pokemonList = [
   { img: "assets/images/pikachu01.png", name: "pikachu" },
