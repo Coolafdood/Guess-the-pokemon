@@ -1,41 +1,42 @@
-const { pokemonList, isCorrectGuess, updateScore, nextPokemonId } = require("./game.js");
+const { pokemonList, isCorrectGuess, updateScore, nextPokemonId, shuffleArray } = require("./game.js");
 
 describe("Pokémon Game Logic", () => {
-  // isCorrectGuess tests
-  test("should return true for a correct guess", () => {
-    const result = isCorrectGuess("pikachu", 0, pokemonList);
-    expect(result).toBe(true);
+
+  // ---------- isCorrectGuess ----------
+  test("returns true for correct guess (case-insensitive)", () => {
+    expect(isCorrectGuess("pikachu", 0, pokemonList)).toBe(true);
+    expect(isCorrectGuess("Pikachu", 0, pokemonList)).toBe(true);
   });
 
-  test("should return false for an incorrect guess", () => {
-    const result = isCorrectGuess("charmander", 0, pokemonList);
-    expect(result).toBe(false);
+  test("returns false for incorrect guess", () => {
+    expect(isCorrectGuess("charmander", 0, pokemonList)).toBe(false);
   });
 
-  test("should be case-insensitive", () => {
-    const result = isCorrectGuess("Pikachu", 0, pokemonList);
-    expect(result).toBe(true);
+  // ---------- updateScore ----------
+  test("increments score if correct", () => {
+    expect(updateScore(true, 5)).toBe(6);
   });
 
-  // updateScore tests
-  test("should increment score when guess is correct", () => {
-    const result = updateScore(true, 5);
-    expect(result).toBe(6);
+  test("does not increment score if incorrect", () => {
+    expect(updateScore(false, 5)).toBe(5);
   });
 
-  test("should not change score when guess is incorrect", () => {
-    const result = updateScore(false, 5);
-    expect(result).toBe(5);
+  // ---------- nextPokemonId ----------
+  test("moves to next Pokémon", () => {
+    expect(nextPokemonId(0, pokemonList.length)).toBe(1);
   });
 
-  // nextPokemonId tests
-  test("should move to the next Pokémon", () => {
-    const result = nextPokemonId(0, pokemonList.length);
-    expect(result).toBe(1);
+  test("wraps to 0 at end of list", () => {
+    expect(nextPokemonId(pokemonList.length - 1, pokemonList.length)).toBe(0);
   });
 
-  test("should wrap back to 0 when at the end of the list", () => {
-    const result = nextPokemonId(pokemonList.length - 1, pokemonList.length);
-    expect(result).toBe(0);
+  // ---------- shuffleArray ----------
+  test("shuffles array without losing items", () => {
+    const shuffled = shuffleArray(pokemonList);
+    expect(shuffled).toHaveLength(pokemonList.length);
+    expect(shuffled).toEqual(expect.arrayContaining(pokemonList));
+    const sameOrder = shuffled.every((p, i) => p === pokemonList[i]);
+    expect(sameOrder).toBe(false);
   });
+
 });
