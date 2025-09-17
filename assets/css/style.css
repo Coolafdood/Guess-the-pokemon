@@ -1,45 +1,58 @@
-/* General Page Layout */
+/* General body and layout */
 body {
-  padding-top: 70px; /* push below navbar */
-  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding-top: 70px; /* Offset for fixed navbar */
   display: flex;
   flex-direction: column;
-  background-color: #f9f9f9;
-  font-family: "Segoe UI", Arial, sans-serif;
+  min-height: 100vh;
 }
 
-main {
-  flex: 1;
+/* Navbar */
+.navbar-brand i {
+  margin-right: 0.5rem;
 }
 
-/* Pokémon Image */
+/* Main game heading */
+h1 {
+  color: #333;
+}
+
+/* Pokémon image */
 #pokemonImage {
-  border: 3px solid #333;
-  border-radius: 12px;
-  background-color: #fff;
-  padding: 10px;
+  max-width: 300px;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
 
-/* Buttons */
-button {
-  font-size: 1rem;
-  padding: 10px 20px;
-  transition: all 0.2s ease;
+/* Result message */
+#resultText {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
 
-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+/* Input and buttons */
+#guessInput {
+  max-width: 300px;
+  margin: 0 auto 1rem;
+  text-align: center;
 }
 
-/* Results Overlay */
+#checkGuessButton,
+#nextPokemonButton {
+  min-width: 100px;
+}
+
+/* Overlay for end-of-round */
 .results-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0,0,0,0.7);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,25 +60,27 @@ button:hover {
 }
 
 .results-content {
-  background: #222;
+  background: #fff;
   padding: 2rem;
-  border-radius: 12px;
-  color: #fff;
+  border-radius: 1rem;
   max-width: 400px;
   width: 90%;
-  text-align: center;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
 
 .results-content h2 {
-  font-size: 2rem;
   margin-bottom: 1rem;
+  color: #007bff;
 }
 
 .results-content p {
   margin: 0.5rem 0;
+  font-weight: 500;
 }
 
-.results-content button {
-  margin-top: 1rem;
+/* Footer */
+footer {
+  margin-top: auto;
+  background-color: #e9ecef;
+  color: #6c757d;
 }

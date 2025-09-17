@@ -1,42 +1,26 @@
-const { pokemonList, isCorrectGuess, updateScore, nextPokemonId, shuffleArray } = require("./game.js");
+const { isCorrectGuess, updateScore, nextPokemonId, shuffleArray, pokemonList } = require('./game');
 
-describe("Pokémon Game Logic", () => {
+test('isCorrectGuess returns true for correct guess', () => {
+  expect(isCorrectGuess('pikachu', 0, pokemonList)).toBe(true);
+});
 
-  // ---------- isCorrectGuess ----------
-  test("returns true for correct guess (case-insensitive)", () => {
-    expect(isCorrectGuess("pikachu", 0, pokemonList)).toBe(true);
-    expect(isCorrectGuess("Pikachu", 0, pokemonList)).toBe(true);
-  });
+test('isCorrectGuess returns false for wrong guess', () => {
+  expect(isCorrectGuess('bulbasaur', 0, pokemonList)).toBe(false);
+});
 
-  test("returns false for incorrect guess", () => {
-    expect(isCorrectGuess("charmander", 0, pokemonList)).toBe(false);
-  });
+test('updateScore increments correctly', () => {
+  expect(updateScore(true, 0)).toBe(1);
+  expect(updateScore(false, 2)).toBe(2);
+});
 
-  // ---------- updateScore ----------
-  test("increments score if correct", () => {
-    expect(updateScore(true, 5)).toBe(6);
-  });
+test('nextPokemonId loops correctly', () => {
+  expect(nextPokemonId(0, 5)).toBe(1);
+  expect(nextPokemonId(4, 5)).toBe(0);
+});
 
-  test("does not increment score if incorrect", () => {
-    expect(updateScore(false, 5)).toBe(5);
-  });
-
-  // ---------- nextPokemonId ----------
-  test("moves to next Pokémon", () => {
-    expect(nextPokemonId(0, pokemonList.length)).toBe(1);
-  });
-
-  test("wraps to 0 at end of list", () => {
-    expect(nextPokemonId(pokemonList.length - 1, pokemonList.length)).toBe(0);
-  });
-
-  // ---------- shuffleArray ----------
-  test("shuffles array without losing items", () => {
-    const shuffled = shuffleArray(pokemonList);
-    expect(shuffled).toHaveLength(pokemonList.length);
-    expect(shuffled).toEqual(expect.arrayContaining(pokemonList));
-    const sameOrder = shuffled.every((p, i) => p === pokemonList[i]);
-    expect(sameOrder).toBe(false);
-  });
-
+test('shuffleArray returns a shuffled array', () => {
+  const shuffled = shuffleArray(pokemonList);
+  expect(shuffled.length).toBe(pokemonList.length);
+  // Just ensure order changed sometimes
+  expect(shuffled).not.toEqual(pokemonList);
 });

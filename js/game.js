@@ -1,8 +1,5 @@
 /* global document, module */
-/* eslint-disable no-unused-vars */
-
-// ---------- Pokémon Data ----------
-const pokemonList = [
+var pokemonList = [
   { img: "assets/images/pikachu01.png", name: "pikachu" },
   { img: "assets/images/charmander02.png", name: "charmander" },
   { img: "assets/images/bulbasaur03.png", name: "bulbasaur" },
@@ -25,13 +22,13 @@ const pokemonList = [
   { img: "assets/images/gengar20.png", name: "gengar" }
 ];
 
-// ---------- Pure logic ----------
+// Pure Logic Functions
 function isCorrectGuess(userGuess, pokemonId, list) {
-  return userGuess.trim().toLowerCase() === list[pokemonId].name;
+  return (userGuess.trim().toLowerCase() === list[pokemonId].name);
 }
 
 function updateScore(isCorrect, currentScore) {
-  return isCorrect ? currentScore + 1 : currentScore;
+  return (isCorrect) ? currentScore + 1 : currentScore;
 }
 
 function nextPokemonId(currentId, listLength) {
@@ -39,28 +36,31 @@ function nextPokemonId(currentId, listLength) {
 }
 
 function shuffleArray(array) {
-  const copy = array.slice();
-  for (let i = copy.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [copy[i], copy[j]] = [copy[j], copy[i]];
+  var copy = array.slice();
+  var i, j, temp;
+  for (i = copy.length - 1; i > 0; i -= 1) {
+    j = Math.floor(Math.random() * (i + 1));
+    temp = copy[i];
+    copy[i] = copy[j];
+    copy[j] = temp;
   }
   return copy;
 }
 
-// ---------- DOM Game ----------
-if (typeof document !== "undefined") {
-  document.addEventListener("DOMContentLoaded", function () {
-    const pokemonImage = document.getElementById("pokemonImage");
-    const guessInput = document.getElementById("guessInput");
-    const resultText = document.getElementById("resultText");
-    const checkGuessButton = document.getElementById("checkGuessButton");
-    const nextPokemonButton = document.getElementById("nextPokemonButton");
+// DOM Game
+if (typeof document === "object") {
+  document.addEventListener("DOMContentLoaded", function() {
+    var pokemonImage = document.getElementById("pokemonImage");
+    var guessInput = document.getElementById("guessInput");
+    var resultText = document.getElementById("resultText");
+    var checkGuessButton = document.getElementById("checkGuessButton");
+    var nextPokemonButton = document.getElementById("nextPokemonButton");
 
-    let shuffledPokemonList = shuffleArray(pokemonList);
-    let currentPokemonId = 0;
-    let score = 0;
-    let highScore = 0;
-    let wrongGuesses = 0;
+    var shuffledPokemonList = shuffleArray(pokemonList);
+    var currentPokemonId = 0;
+    var score = 0;
+    var highScore = 0;
+    var wrongGuesses = 0;
 
     function runGame() {
       pokemonImage.src = shuffledPokemonList[currentPokemonId].img;
@@ -71,65 +71,51 @@ if (typeof document !== "undefined") {
     }
 
     function showEndOverlay() {
-      let overlay = document.getElementById("resultsOverlay");
-      if (!overlay) {
-        overlay = document.createElement("div");
-        overlay.id = "resultsOverlay";
-        overlay.className = "results-overlay";
-
-        overlay.innerHTML = `
-          <div class="results-content text-center">
-            <h2>🏁 Round Finished!</h2>
-            <p>Final Score: ${score}</p>
-            <p>Wrong Guesses: ${wrongGuesses}</p>
-            <p>High Score: ${highScore}</p>
-            <button id="restartButton" class="btn btn-success mt-3">Restart Game</button>
-          </div>
-        `;
-        document.body.appendChild(overlay);
-
-        // Attach restart handler
-        document.getElementById("restartButton").addEventListener("click", () => {
-          document.body.removeChild(overlay);
-          restartGame();
-        });
-      }
+      var overlay = document.createElement("div");
+      overlay.className = "results-overlay";
+      overlay.innerHTML = "<div class='results-content text-center'>" +
+        "<h2>🏁 Round Finished!</h2>" +
+        "<p>Final Score: " + score + "</p>" +
+        "<p>Wrong Guesses: " + wrongGuesses + "</p>" +
+        "<p>High Score: " + highScore + "</p>" +
+        "<button id='restartButton' class='btn btn-success mt-3'>Restart Game</button>" +
+        "</div>";
+      document.body.appendChild(overlay);
+      document.getElementById("restartButton").addEventListener("click", function() {
+        document.body.removeChild(overlay);
+        restartGame();
+      });
     }
 
     function handleCheckGuess() {
-      const userGuess = guessInput.value.trim();
-
-      if (!userGuess) {
-        resultText.textContent = "⚠️ Please enter a guess!";
-        return;
-      }
-
-      const correct = isCorrectGuess(userGuess, currentPokemonId, shuffledPokemonList);
+      var userGuess = guessInput.value.trim();
+      if (!userGuess) { resultText.textContent = "⚠️ Please enter a guess!"; return; }
+      var correct = isCorrectGuess(userGuess, currentPokemonId, shuffledPokemonList);
       if (correct) {
         score = updateScore(true, score);
-        if (score > highScore) highScore = score;
-        resultText.textContent = `🎉 Correct! It's ${shuffledPokemonList[currentPokemonId].name}! Score: ${score}`;
+        if (score > highScore) { highScore = score; }
+        resultText.textContent = "🎉 Correct! It's " + shuffledPokemonList[currentPokemonId].name + "! Score: " + score;
       } else {
-        wrongGuesses++;
+        wrongGuesses += 1;
         resultText.textContent = "❌ Wrong guess!";
       }
 
-      setTimeout(() => {
+      setTimeout(function() {
         if (currentPokemonId === shuffledPokemonList.length - 1) {
           showEndOverlay();
         } else {
-          currentPokemonId++;
+          currentPokemonId = nextPokemonId(currentPokemonId, shuffledPokemonList.length);
           runGame();
         }
       }, 800);
     }
 
     function handleSkip() {
-      wrongGuesses++;
+      wrongGuesses += 1;
       if (currentPokemonId === shuffledPokemonList.length - 1) {
         showEndOverlay();
       } else {
-        currentPokemonId++;
+        currentPokemonId = nextPokemonId(currentPokemonId, shuffledPokemonList.length);
         runGame();
       }
     }
@@ -142,11 +128,9 @@ if (typeof document !== "undefined") {
       runGame();
     }
 
-    // Event listeners
     checkGuessButton.addEventListener("click", handleCheckGuess);
     nextPokemonButton.addEventListener("click", handleSkip);
-
-    guessInput.addEventListener("keypress", function (event) {
+    guessInput.addEventListener("keypress", function(event) {
       if (event.key === "Enter") handleCheckGuess();
     });
 
@@ -154,7 +138,13 @@ if (typeof document !== "undefined") {
   });
 }
 
-// ---------- Exports for testing ----------
-if (typeof module !== "undefined" && module.exports) {
-  module.exports = { pokemonList, isCorrectGuess, updateScore, nextPokemonId, shuffleArray };
+// Exports for testing
+if (typeof module === "object" && module.exports) {
+  module.exports = {
+    pokemonList,
+    isCorrectGuess,
+    updateScore,
+    nextPokemonId,
+    shuffleArray
+  };
 }
