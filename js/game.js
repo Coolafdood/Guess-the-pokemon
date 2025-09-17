@@ -1,4 +1,4 @@
-/* global document, window, module */
+/* global document, module */
 /* eslint-disable no-unused-vars */
 
 // ---------- Pokémon Data ----------
@@ -47,7 +47,7 @@ function shuffleArray(array) {
   return copy;
 }
 
-// ---------- DOM Game Logic ----------
+// ---------- DOM Game ----------
 if (typeof document !== "undefined") {
   document.addEventListener("DOMContentLoaded", function () {
     const pokemonImage = document.getElementById("pokemonImage");
@@ -60,8 +60,8 @@ if (typeof document !== "undefined") {
     let currentPokemonId = 0;
     let score = 0;
     let highScore = 0;
+    let wrongGuesses = 0;
 
-    // ---------- Game Functions ----------
     function runGame() {
       pokemonImage.src = shuffledPokemonList[currentPokemonId].img;
       resultText.textContent = "➡️ Enter your guess!";
@@ -70,12 +70,62 @@ if (typeof document !== "undefined") {
       guessInput.focus();
     }
 
-    function advancePokemon(wasCorrect) {
-      if (!wasCorrect) {
-        // Count skipped/wrong guess as incorrect
-        score = updateScore(false, score);
+    function showEndOverlay() {
+      let overlay = document.getElementById("resultsOverlay");
+      if (!overlay) {
+        overlay = document.createElement("div");
+        overlay.id = "resultsOverlay";
+        overlay.className = "results-overlay";
+
+        overlay.innerHTML = `
+          <div class="results-content text-center">
+            <h2>🏁 Round Finished!</h2>
+            <p>Final Score: ${score}</p>
+            <p>Wrong Guesses: ${wrongGuesses}</p>
+            <p>High Score: ${highScore}</p>
+            <button id="restartButton" class="btn btn-success mt-3">Restart Game</button>
+          </div>
+        `;
+        document.body.appendChild(overlay);
+
+        // Attach restart handler
+        document.getElementById("restartButton").addEventListener("click", () => {
+          document.body.removeChild(overlay);
+          restartGame();
+        });
+      }
+    }
+
+    function handleCheckGuess() {
+      const userGuess = guessInput.value.trim();
+
+      if (!userGuess) {
+        resultText.textContent = "⚠️ Please enter a guess!";
+        return;
       }
 
+      const correct = isCorrectGuess(userGuess, currentPokemonId, shuffledPokemonList);
+      if (correct) {
+        score = updateScore(true, score);
+        if (score > highScore) highScore = score;
+        resultText.textContent = `🎉 Correct! It's ${shuffledPokemonList[currentPokemonId].name}! Score: ${score}`;
+      } else {
+        wrongGuesses++;
+        resultText.textContent = "❌ Wrong guess!";
+      }
+
+      setTimeout(() => {
+        if (currentPokemonId === shuffledPokemonList.length - 1) {
+          showEndOverlay();
+        } else {
+          currentPokemonId++;
+          runGame();
+        }
+      }, 800);
+    }
+
+    function handleSkip() {
+      wrongGuesses++;
       if (currentPokemonId === shuffledPokemonList.length - 1) {
         showEndOverlay();
       } else {
@@ -84,71 +134,15 @@ if (typeof document !== "undefined") {
       }
     }
 
-    function handleCheckGuess() {
-      const userGuess = guessInput.value.trim();
-      if (!userGuess) {
-        resultText.textContent = "⚠️ Please enter a guess!";
-        return;
-      }
-
-      const correct = isCorrectGuess(userGuess, currentPokemonId, shuffledPokemonList);
-      if (correct) score = updateScore(true, score);
-      if (score > highScore) highScore = score;
-
-      resultText.textContent = correct
-        ? `🎉 Correct! It's ${shuffledPokemonList[currentPokemonId].name}! Score: ${score}`
-        : "❌ Oops! That's not the correct Pokémon. Try again!";
-
-      guessInput.value = "";
-      if (correct) setTimeout(() => advancePokemon(true), 500);
+    function restartGame() {
+      shuffledPokemonList = shuffleArray(pokemonList);
+      currentPokemonId = 0;
+      score = 0;
+      wrongGuesses = 0;
+      runGame();
     }
 
-    function handleSkip() {
-      resultText.textContent = `⏭ Skipped! It was ${shuffledPokemonList[currentPokemonId].name}.`;
-      setTimeout(() => advancePokemon(false), 500);
-    }
-
-    function showEndOverlay() {
-      let overlay = document.getElementById("resultsOverlay");
-      if (!overlay) {
-        overlay = document.createElement("div");
-        overlay.id = "resultsOverlay";
-        overlay.style.position = "fixed";
-        overlay.style.top = 0;
-        overlay.style.left = 0;
-        overlay.style.width = "100%";
-        overlay.style.height = "100%";
-        overlay.style.backgroundColor = "rgba(0,0,0,0.85)";
-        overlay.style.color = "#fff";
-        overlay.style.display = "flex";
-        overlay.style.flexDirection = "column";
-        overlay.style.justifyContent = "center";
-        overlay.style.alignItems = "center";
-        overlay.style.zIndex = 9999;
-
-        overlay.innerHTML = `
-          <h2>🏁 Round Finished!</h2>
-          <p id="finalScore"></p>
-          <p id="finalHighScore"></p>
-          <button id="restartButton" class="btn btn-success mt-3">Restart Game</button>
-        `;
-        document.body.appendChild(overlay);
-
-        document.getElementById("restartButton").addEventListener("click", () => {
-          shuffledPokemonList = shuffleArray(pokemonList);
-          currentPokemonId = 0;
-          score = 0;
-          overlay.style.display = "none";
-          runGame();
-        });
-      }
-
-      document.getElementById("finalScore").textContent = `Score: ${score}`;
-      document.getElementById("finalHighScore").textContent = `High Score: ${highScore}`;
-      overlay.style.display = "flex";
-    }
-
-    // ---------- Event Listeners ----------
+    // Event listeners
     checkGuessButton.addEventListener("click", handleCheckGuess);
     nextPokemonButton.addEventListener("click", handleSkip);
 
@@ -160,7 +154,7 @@ if (typeof document !== "undefined") {
   });
 }
 
-// ---------- Export for Jest ----------
+// ---------- Exports for testing ----------
 if (typeof module !== "undefined" && module.exports) {
   module.exports = { pokemonList, isCorrectGuess, updateScore, nextPokemonId, shuffleArray };
 }
