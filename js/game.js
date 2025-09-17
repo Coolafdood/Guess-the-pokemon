@@ -24,11 +24,11 @@ var pokemonList = [
 
 // Pure Logic Functions
 function isCorrectGuess(userGuess, pokemonId, list) {
-  return (userGuess.trim().toLowerCase() === list[pokemonId].name);
+  return userGuess.trim().toLowerCase() === list[pokemonId].name;
 }
 
 function updateScore(isCorrect, currentScore) {
-  return (isCorrect) ? currentScore + 1 : currentScore;
+  return isCorrect ? currentScore + 1 : currentScore;
 }
 
 function nextPokemonId(currentId, listLength) {
@@ -38,7 +38,7 @@ function nextPokemonId(currentId, listLength) {
 function shuffleArray(array) {
   var copy = array.slice();
   var i, j, temp;
-  for (i = copy.length - 1; i > 0; i -= 1) {
+  for (i = copy.length - 1; i > 0; i--) {
     j = Math.floor(Math.random() * (i + 1));
     temp = copy[i];
     copy[i] = copy[j];
@@ -73,14 +73,16 @@ if (typeof document === "object") {
     function showEndOverlay() {
       var overlay = document.createElement("div");
       overlay.className = "results-overlay";
-      overlay.innerHTML = "<div class='results-content text-center'>" +
-        "<h2>🏁 Round Finished!</h2>" +
-        "<p>Final Score: " + score + "</p>" +
-        "<p>Wrong Guesses: " + wrongGuesses + "</p>" +
-        "<p>High Score: " + highScore + "</p>" +
-        "<button id='restartButton' class='btn btn-success mt-3'>Restart Game</button>" +
-        "</div>";
+      overlay.innerHTML = `
+        <div class="results-content text-center bg-light p-4 rounded shadow">
+          <h2>🏁 Round Finished!</h2>
+          <p>Final Score: ${score}</p>
+          <p>Wrong Guesses: ${wrongGuesses}</p>
+          <p>High Score: ${highScore}</p>
+          <button id="restartButton" class="btn btn-success mt-3">Restart Game</button>
+        </div>`;
       document.body.appendChild(overlay);
+
       document.getElementById("restartButton").addEventListener("click", function() {
         document.body.removeChild(overlay);
         restartGame();
@@ -89,14 +91,18 @@ if (typeof document === "object") {
 
     function handleCheckGuess() {
       var userGuess = guessInput.value.trim();
-      if (!userGuess) { resultText.textContent = "⚠️ Please enter a guess!"; return; }
+      if (!userGuess) {
+        resultText.textContent = "⚠️ Please enter a guess!";
+        return;
+      }
+
       var correct = isCorrectGuess(userGuess, currentPokemonId, shuffledPokemonList);
       if (correct) {
         score = updateScore(true, score);
-        if (score > highScore) { highScore = score; }
-        resultText.textContent = "🎉 Correct! It's " + shuffledPokemonList[currentPokemonId].name + "! Score: " + score;
+        if (score > highScore) highScore = score;
+        resultText.textContent = `🎉 Correct! It's ${shuffledPokemonList[currentPokemonId].name}! Score: ${score}`;
       } else {
-        wrongGuesses += 1;
+        wrongGuesses++;
         resultText.textContent = "❌ Wrong guess!";
       }
 
@@ -111,7 +117,7 @@ if (typeof document === "object") {
     }
 
     function handleSkip() {
-      wrongGuesses += 1;
+      wrongGuesses++;
       if (currentPokemonId === shuffledPokemonList.length - 1) {
         showEndOverlay();
       } else {
@@ -131,7 +137,9 @@ if (typeof document === "object") {
     checkGuessButton.addEventListener("click", handleCheckGuess);
     nextPokemonButton.addEventListener("click", handleSkip);
     guessInput.addEventListener("keypress", function(event) {
-      if (event.key === "Enter") handleCheckGuess();
+      if (event.key === "Enter") {
+        handleCheckGuess();
+      }
     });
 
     runGame();
